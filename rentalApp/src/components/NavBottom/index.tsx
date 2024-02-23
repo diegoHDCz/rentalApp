@@ -3,8 +3,10 @@ import React from 'react'
 import { Icon, Image } from 'native-base';
 import { styles } from './styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useAuth } from '../../hooks/useAuth';
 
 export function NavBottom() {
+ // const user = useAuth();
   const img = require('../../../assets/bibipi.png')
   return (
     <View style={styles.container}>

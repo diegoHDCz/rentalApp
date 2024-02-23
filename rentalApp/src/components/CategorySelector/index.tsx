@@ -1,13 +1,13 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
-import { Avatar, Button, Center, HStack, Image, VStack } from 'native-base'
+import { Avatar, HStack, VStack } from 'native-base';
+import React, { useState } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 
 interface ICategorySelectorProps {
-  onChange: () => string;
+  onChange: (newCategory) => void;
 }
 
 export function CategorySelector({ onChange, ...rest }: ICategorySelectorProps) {
-  const [category, setCateogry] = useState<string>(null)
+
   const popCar = require('../../../assets/selector/carroPopular.png')
   const suv = require('../../../assets/selector/SuvCar.png')
   const sports = require('../../../assets/selector/sportsCar.png')
@@ -15,11 +15,11 @@ export function CategorySelector({ onChange, ...rest }: ICategorySelectorProps) 
   const lux = require('../../../assets/selector/luxCar.png')
   const classic = require('../../../assets/selector/classicCar.png')
 
-  async function selectCategory(clickedProp: string) {
-    console.log(category)
-    console.log('activated')
-    await setCateogry(clickedProp);
-    console.log(category)
+  function selectCategory(clickedProp: string) {
+
+
+    onChange(clickedProp)
+
   }
 
   return (

@@ -1,3 +1,4 @@
+import React from 'react'
 import { View, Text, useWindowDimensions, Image, ImageSourcePropType } from "react-native";
 import { styles } from "./styles";
 
