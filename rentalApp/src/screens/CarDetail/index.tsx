@@ -21,11 +21,9 @@ import color from '../../styles/color';
 
 
 export function CarDetail() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+
   const [widthBar, setWidthBar] = useState(0)
-  const viewableItemsChanged = useRef(({ viewableItems }: any) => {
-    setCurrentIndex(viewableItems[0].index)
-  }).current
+
   const commentCount = 7
   const benefitsCount = 10
   const onLayout = (event: { nativeEvent: { layout: { x: any; y: any; height: number; width: number; }; }; }) => {
@@ -35,43 +33,8 @@ export function CarDetail() {
 
   const slidesRef = useRef(null);
 
-  const scrollX = useRef(new Animated.Value(0)).current
-  const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current
-  const ratingCompleted = (rating: number) => {
-    console.log('Rating is: ' + rating);
-    console.log('kaakaka')
-  };
   return (
     <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-      <View style={styles.carousel}>
-        <FlatList data={slides}
-          renderItem={({ item }) => <CarDetailItem item={item} />}
-          horizontal
-          pagingEnabled
-          bounces={false}
-          keyExtractor={(item) => item.id}
-          showsHorizontalScrollIndicator={false}
-          onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }],
-            { useNativeDriver: false })}
-          scrollEventThrottle={32}
-          onViewableItemsChanged={viewableItemsChanged}
-          viewabilityConfig={viewConfig}
-          ref={slidesRef}
-        />
-        <Paginator data={slides} scrollX={scrollX} />
-      </View>
-      <View style={styles.descriptionRow}>
-        <Text style={styles.header}>Tiguan 2.0 TSI</Text>
-        <Icon name='star' size={24}><Text style={styles.header}>3.0</Text></Icon>
-      </View>
-      <View style={styles.descriptionRow}>
-        <Text style={styles.subtitle}>Ano 2019</Text>
-        <Text style={styles.subtitle}>Recife - PE</Text>
-      </View>
-      <View style={styles.descriptionRow}>
-        <Text style={styles.subtitle}>34.342 Km</Text>
-        <Text style={styles.subtitle}>1 - 6 de setembro</Text>
-      </View>
       <View style={[styles.descriptionRow, { marginTop: 24 }]}>
         <Text style={styles.comments}>7 comentários</Text>
         <Icon name='user' size={18}><Text style={styles.comments}>{'  '}Hoster 10</Text></Icon>

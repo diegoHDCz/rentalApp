@@ -1,31 +1,35 @@
-import { HStack, Image, ScrollView, Stack, Text, VStack } from 'native-base';
+
 import React from 'react';
 
 import { CategorySelector } from '../../components/CategorySelector';
 import { ColoredButton } from '../../components/ColoredButton';
 import { NavBottom } from '../../components/NavBottom';
 import color from '../../styles/color';
-import { CarDetailItem } from '../../components/CarDetailItem';
+import { Carousel } from '../../components/Carousel';
+import { Image, ScrollView,View } from 'react-native';
+import { styles } from './styles';
+
 
 export function AutoSelector() {
   const img = require('../../../assets/banner.png')
   function handleClick(clicked) {
-    console.log('clicked:' + clicked)
+   alert('clicked:' + clicked)
   }
   return (
     <>
-      <VStack flex={1} alignItems={'center'} justifyContent={'space-between'}>
-        <Image source={img} w={'100%'} mb={4} alt='banner de entrada' />
-        <HStack mx={4} mb={4}>
+       <Image source={img} style={{width:'100%'}} alt='banner de entrada' />
+      <View style={styles.container}>
+     
+        <View>
           <ColoredButton title='Ganhe dinheiro com seu veículo' color={color.green} />
-        </HStack>
+        </View>
         <CategorySelector onChange={handleClick}  />
-
+        <View>
           <ScrollView showsVerticalScrollIndicator={false}>
-              <CarDetailItem item={} key={}/>
+            <Carousel  />
           </ScrollView>
-
-      </VStack>
+          </View>
+      </View>
       <NavBottom />
     </>
   )
