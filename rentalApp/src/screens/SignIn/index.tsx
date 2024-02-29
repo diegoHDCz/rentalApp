@@ -43,22 +43,22 @@ export const SignIn = () => {
         <Icon style={{ paddingLeft: 22 }} name="arrow-left" size={18} onPress={handleReturnScreen} />
       </View>
       <View style={{ marginVertical: 18, paddingHorizontal: 8 }}>
-        <Text style={{ marginTop: 12 }}>{loginType === 'whatsapp' ? 'WhatsApp' : 'Email'}</Text>
+        <Text style={{ marginTop: 12}}>
+          {loginType === 'whatsapp' ? 'WhatsApp' : 'Email'}</Text>
+
         <TextInput
-          style={{ borderRadius: 10, borderWidth: 1, borderColor: 'grey', padding: 16 }}
+          style={{ margin: 12, borderRadius: 8, borderWidth: 1, borderColor: 'grey', padding: 8 }}
           keyboardType={loginType === 'whatsapp' ? 'phone-pad' : 'email-address'}
           placeholder={loginType === 'whatsapp' ? 'Digite seu WhatsApp' : 'Digite seu E-mail'}
         />
       </View>
-      <Text style={{ marginTop: 12 }}>Senha</Text>
+      <Text style={{ marginTop: 12, padding: 8 }}>Senha</Text>
       <TextInput
-        style={{ borderRadius: 10, borderWidth: 1, borderColor: 'grey', padding: 16 }}
+      style={{ margin: 12, borderRadius: 8, borderWidth: 1, borderColor: 'grey', padding: 8 }}
         placeholder="Digite sua senha Bibipi"
         secureTextEntry={true}
       />
-      <View>
-        <Text>{loginType ? 'Senha válida' : 'Senha inválida'}</Text>
-      </View>
+     
 
       <View>
         <Text style={{ textAlign: 'center', fontWeight: 'bold', padding: 4 }}>Enviaremos uma mensagem para você confirmando o seu número. Podem ser aplicadas tarifas padrões de dados e mensagens.</Text>
